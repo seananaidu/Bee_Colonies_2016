@@ -38,8 +38,9 @@ for page in pages[3:4]:
       elif int(el.attrib['left']) < 760: data = { 'Colonies_renov': el.text }
       elif int(el.attrib['left']) < 900: data = { 'Percent_renov': el.text}
       print data
+      
 # # Write out to the sqlite database using scraperwiki library
-# scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
+scraperwiki.sqlite.save(unique_keys=[], data=data)
 #
 # # An arbitrary query against the database
 # scraperwiki.sql.select("* from data where 'name'='peter'")
