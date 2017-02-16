@@ -19,7 +19,7 @@ xmldata = scraperwiki.pdftoxml(pdfdata)
 root = lxml.etree.fromstring(xmldata)
 
 # # To print all of the pdf in xml:
-print lxml.etree.tostring(root, pretty_print=True)
+# print lxml.etree.tostring(root, pretty_print=True)
 
 pages = list(root)
 print "There are",len(pages),"pages"
