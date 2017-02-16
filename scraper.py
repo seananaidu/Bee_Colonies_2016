@@ -18,7 +18,18 @@ pdfdata = urllib2.urlopen(url).read()
 xmldata = scraperwiki.pdftoxml(pdfdata)
 root = lxml.etree.fromstring(xmldata)
 
+# # To print all of the pdf in xml:
 print lxml.etree.tostring(root, pretty_print=True)
+
+pages = list(root)
+print "There are",len(pages),"pages"
+
+# # For each page in the document and for each element in a page
+for page in pages:
+  for el in page:
+    # # If the element is tagged as text, print our that text and its attribute
+    if el.tag == "text":
+      print el.text, el.attrib
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
 #
