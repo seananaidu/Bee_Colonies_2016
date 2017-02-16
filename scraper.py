@@ -25,7 +25,7 @@ pages = list(root)
 print "There are",len(pages),"pages"
 
 # # For each page in the document and for each element in a page
-for page in pages:
+for page in pages[3:4]:
   for el in page:
     # # If the element is tagged as text, print our that text and its attribute
     if el.tag == "text":
