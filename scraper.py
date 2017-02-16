@@ -4,13 +4,21 @@
 # import scraperwiki
 # import lxml.html
 #
+import scraperwiki
+import urllib2, lxml.etree
 # # Read in a page
 # html = scraperwiki.scrape("http://foo.com")
 #
+url = 'http://usda.mannlib.cornell.edu/usda/current/BeeColonies/BeeColonies-05-12-2016.pdf'
 # # Find something on the page using css selectors
 # root = lxml.html.fromstring(html)
 # root.cssselect("div[align='left']")
 #
+pdfdata = urllib2.urlopen(url).read()
+xmldata = scraperwiki.pdftoxml(pdfdata)
+root = lxml.etree.fromstring(xmldata)
+
+print etree.tostring(root, pretty_print=True)
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
 #
