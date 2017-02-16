@@ -41,7 +41,22 @@ for page in pages[3:4]:
       
 # # Write out to the sqlite database using scraperwiki library
 scraperwiki.sqlite.save(unique_keys=[], data=data)
-#
+
+# Get data from the morph.io api
+import requests
+
+# We're always asking for json because it's the easiest to deal with
+morph_api_url = "https://api.morph.io/seananaidu/Bee_Colonies_2016/data.json"
+
+# Keep this key secret!
+morph_api_key = "wWNLUtCeaZrYc+bipa3d"
+
+r = requests.get(morph_api_url, params={
+  'key': morph_api_key,
+  'query': "select * from 'data' limit 10"
+})
+
+print r.json()
 # # An arbitrary query against the database
 # scraperwiki.sql.select("* from data where 'name'='peter'")
 
