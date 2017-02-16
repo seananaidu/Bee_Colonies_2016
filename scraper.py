@@ -18,7 +18,7 @@ pdfdata = urllib2.urlopen(url).read()
 xmldata = scraperwiki.pdftoxml(pdfdata)
 root = lxml.etree.fromstring(xmldata)
 
-print etree.tostring(root, pretty_print=True)
+print lxml.etree.tostring(root, pretty_print=True)
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
 #
