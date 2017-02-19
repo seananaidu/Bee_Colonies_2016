@@ -19,7 +19,10 @@ xmldata = scraperwiki.pdftoxml(pdfdata)
 root = lxml.etree.fromstring(xmldata)
 
 # # To print all of the pdf in xml:
-print lxml.etree.tostring(root, pretty_print=True)
+# print lxml.etree.tostring(root, pretty_print=True)
+
+# # To print a page of the pdf in xml:
+
 
 pages = list(root)
 print "There are",len(pages),"pages"
@@ -29,6 +32,7 @@ for page in pages[3:4]:
   for el in page:
     # # If the element is tagged as text, print our that text and its attribute
     if el.tag == "text":
+      if "  - " in el.text: break
       if int(el.attrib['left']) < 60: data = { 'State': el.text }
       elif int(el.attrib['left']) < 250: data['Colonies_start'] = el.text 
       elif int(el.attrib['left']) < 400: data['Colonies_max'] = el.text
