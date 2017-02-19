@@ -32,7 +32,6 @@ for page in pages[3:4]:
   for el in page:
     # # If the element is tagged as text, print our that text and its attribute
     if el.tag == "text":
-      if "  - " in el.text: break
       if int(el.attrib['left']) < 60: data = { 'State': el.text }
       elif int(el.attrib['left']) < 250: data['Colonies_start'] = el.text 
       elif int(el.attrib['left']) < 400: data['Colonies_max'] = el.text
