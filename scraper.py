@@ -30,13 +30,13 @@ for page in pages[3:4]:
     # # If the element is tagged as text, print our that text and its attribute
     if el.tag == "text":
       if int(el.attrib['left']) < 60: data = { 'State': el.text }
-      elif int(el.attrib['left']) < 250: data = { 'Colonies_start': el.text }
-      elif int(el.attrib['left']) < 400: data = { 'Colonies_max': el.text }
-      elif int(el.attrib['left']) < 500: data = { 'Colonies_lost': el.text }
-      elif int(el.attrib['left']) < 560: data = { 'Percent_lost': el.text }
-      elif int(el.attrib['left']) < 660: data = { 'Colonies_added': el.text }
-      elif int(el.attrib['left']) < 760: data = { 'Colonies_renov': el.text }
-      elif int(el.attrib['left']) < 900: data = { 'Percent_renov': el.text}
+      elif int(el.attrib['left']) < 250: data['Colonies_start'] = el.text 
+      elif int(el.attrib['left']) < 400: data['Colonies_max'] = el.text
+      elif int(el.attrib['left']) < 500: data['Colonies_lost'] = el.text
+      elif int(el.attrib['left']) < 560: data['Percent_lost'] = el.text
+      elif int(el.attrib['left']) < 660: data['Colonies_added'] = el.text
+      elif int(el.attrib['left']) < 760: data['Colonies_renov'] = el.text
+      elif int(el.attrib['left']) < 900: data['Percent_renov'] = el.text
       print data
       
 # # Write out to the sqlite database using scraperwiki library
