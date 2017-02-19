@@ -19,7 +19,7 @@ xmldata = scraperwiki.pdftoxml(pdfdata)
 root = lxml.etree.fromstring(xmldata)
 
 # # To print all of the pdf in xml:
-# print lxml.etree.tostring(root, pretty_print=True)
+print lxml.etree.tostring(root, pretty_print=True)
 
 # # To print a page of the pdf in xml:
 
@@ -28,6 +28,7 @@ pages = list(root)
 print "There are",len(pages),"pages"
 
 # # For each page in the document and for each element in a page
+"""
 for page in pages[3:4]:
   for el in page:
     # # If the element is tagged as text, print our that text and its attribute
@@ -41,6 +42,7 @@ for page in pages[3:4]:
       elif int(el.attrib['left']) < 760: data['Colonies_renov'] = el.text
       elif int(el.attrib['left']) < 900: data['Percent_renov'] = el.text
       print data
+"""
       
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=[],table_name = 'Colonies_2015_Jan_Mar', data=data)
