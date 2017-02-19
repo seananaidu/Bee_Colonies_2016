@@ -19,7 +19,7 @@ xmldata = scraperwiki.pdftoxml(pdfdata)
 root = lxml.etree.fromstring(xmldata)
 
 # # To print all of the pdf in xml:
-# print lxml.etree.tostring(root, pretty_print=True)
+print lxml.etree.tostring(root, pretty_print=True)
 
 pages = list(root)
 print "There are",len(pages),"pages"
@@ -40,7 +40,7 @@ for page in pages[3:4]:
       print data
       
 # # Write out to the sqlite database using scraperwiki library
-scraperwiki.sqlite.save(unique_keys=[],table_name = 'Colonies_2015_Jan_Mar', data=data)
+# scraperwiki.sqlite.save(unique_keys=[],table_name = 'Colonies_2015_Jan_Mar', data=data)
 
 # # An arbitrary query against the database
 # scraperwiki.sql.select("* from data where 'name'='peter'")
