@@ -19,7 +19,7 @@ xmldata = scraperwiki.pdftoxml(pdfdata)
 root = lxml.etree.fromstring(xmldata)
 
 # # To print all of the pdf in xml:
-print lxml.etree.tostring(root, pretty_print=True)
+# print lxml.etree.tostring(root, pretty_print=True)
 
 # # To print a page of the pdf in xml:
 
@@ -32,10 +32,10 @@ for page in pages[3:4]:
   for el in page:
     # # If the element is tagged as text, print our that text and its attribute
     if el.tag == "text":
-      if int(el.attrib['left']) < 60: data = { 'State': el.text }
-      elif int(el.attrib['left']) < 250: data['Colonies_start'] = el.text 
-      elif int(el.attrib['left']) < 400: data['Colonies_max'] = el.text
-      elif int(el.attrib['left']) < 500: data['Colonies_lost'] = el.text
+      if int(el.attrib['left']) == 56: data = { 'State': el.text }
+      elif int(el.attrib['left']) < 238 && int(el.attrib['left']) > 210: data['Colonies_start'] = el.text 
+      elif int(el.attrib['left']) < 355 &&  int(el.attrib['left']) > 320: data['Colonies_max'] = el.text
+      elif int(el.attrib['left']) < 450 &&  int(el.attrib['left']) > 420: data['Colonies_lost'] = el.text
       elif int(el.attrib['left']) < 560: data['Percent_lost'] = el.text
       elif int(el.attrib['left']) < 660: data['Colonies_added'] = el.text
       elif int(el.attrib['left']) < 760: data['Colonies_renov'] = el.text
