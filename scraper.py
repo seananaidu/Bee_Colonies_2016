@@ -27,8 +27,6 @@ root = lxml.etree.fromstring(xmldata)
 pages = list(root)
 print "There are",len(pages),"pages"
 
-scraperwiki.sqlite.
-
 # # For each page in the document and for each element in a page
 for page in pages[3:4]:
   for el in page:
