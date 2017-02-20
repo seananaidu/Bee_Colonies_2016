@@ -40,7 +40,7 @@ for page in pages[3:4]:
       elif int(el.attrib['left']) < 645 & int(el.attrib['left']) > 610: data = { 'Colonies_added': el.text }
       elif int(el.attrib['left']) < 755 & int(el.attrib['left']) > 710: data = { 'Colonies_renov': el.text }
       elif int(el.attrib['left']) < 850 & int(el.attrib['left']) > 840: data = { 'Percent_renov': el.text }
-      print data
+print data
 
       
 # # Write out to the sqlite database using scraperwiki library
